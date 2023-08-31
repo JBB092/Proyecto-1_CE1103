@@ -6,7 +6,7 @@
 - Marvin Josué Jiménez Zúñiga (2023236446)
 - Diego Alonso Elizondo Mendoza (2023138264)
 #### Profesor:
-- Luis Alonso Barboza Artavia
+- Luis Alonso Barboza Artavia (labarboza@tec.ac.cr)
 ----
 ### Objetivo General
 - Implementar un juego que permita la aplicación del Paradigma Orientado a Objetos (POO) mediante la utilización de estructuras de datos lineales.
