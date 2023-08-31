@@ -1,6 +1,6 @@
 # Instituto Tecnológico de Costa Rica
 ### Proyecto #1 - Connect dots
-### Algoritmo y Estructuras de Datos I
+### Algoritmos y Estructuras de Datos I
 ##### Estudiantes:
 - José Bernardo Barquero Bonilla (2023150476)
 - Marvin Josué Jiménez Zúñiga (2023236446)
