@@ -6,11 +6,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "ArduinoSerialReceiver",
+            "request": "launch",
+            "mainClass": "ArduinoSerialReceiver",
+            "projectName": "SerialJava_50efb907"
+        },
+        {
+            "type": "java",
             "name": "JavaFX_Arduino",
             "request": "launch",
             "mainClass": "JavaFX_Arduino",
             "projectName": "SerialJava_50efb907",
-            "vmArgs": "--module-path \"C:/Users/joseb/OneDrive/Documentos/Java/javafx-sdk-20.0.2/lib\" --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path \"C:/Users/joseb/OneDrive/Documentos/Java/javafx-sdk-20.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
