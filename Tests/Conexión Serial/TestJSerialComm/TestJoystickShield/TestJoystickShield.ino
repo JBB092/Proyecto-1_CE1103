@@ -43,19 +43,22 @@ void loop() {
     Serial.print("\n");
     }
   if(digitalRead(PIN_BUTTON_RIGHT)==LOW){
-    Serial.print("r:");
-    Serial.print(digitalRead(PIN_BUTTON_RIGHT));
-    Serial.print("\n");
+    Serial.print("r");
+    //Serial.print("r:");
+    //Serial.print(digitalRead(PIN_BUTTON_RIGHT));
+    //Serial.print("\n");
     }
    if(analogRead(PIN_ANALOG_X)>=530 and analogRead(PIN_ANALOG_Y)>=515 and analogRead(PIN_ANALOG_Y)<=530){
-    Serial.print("+x:");
-    Serial.print(analogRead(PIN_ANALOG_X));
-    Serial.print("\n");
+    Serial.print("+x");
+    //Serial.print("+x:");
+    //Serial.print(analogRead(PIN_ANALOG_X));
+    //Serial.print("\n");
     }
    if(analogRead(PIN_ANALOG_X)<=515 and analogRead(PIN_ANALOG_Y)>=515 and analogRead(PIN_ANALOG_Y)<=530){
-    Serial.print("-x:");
-    Serial.print(analogRead(PIN_ANALOG_X));
-    Serial.print("\n");
+    Serial.print("-x");
+    //Serial.print("-x:");
+    //Serial.print(analogRead(PIN_ANALOG_X));
+    //Serial.print("\n");
     }
    if(analogRead(PIN_ANALOG_Y)>=530 and analogRead(PIN_ANALOG_X)>=515 and analogRead(PIN_ANALOG_X)<=530){
     Serial.print("+y:");

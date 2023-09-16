@@ -8,6 +8,27 @@
             "type": "java",
             "name": "ArduinoSerialReceiver",
             "request": "launch",
+            "mainClass": "Serial.ArduinoSerialReceiver",
+            "projectName": "SerialJava_50efb907"
+        },
+        {
+            "type": "java",
+            "name": "DoublyLinkedListMain",
+            "request": "launch",
+            "mainClass": "Serial.DoublyLinkedListMain",
+            "projectName": "SerialJava_50efb907"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Serial.Main",
+            "projectName": "SerialJava_50efb907"
+        },
+        {
+            "type": "java",
+            "name": "ArduinoSerialReceiver",
+            "request": "launch",
             "mainClass": "ArduinoSerialReceiver",
             "projectName": "SerialJava_50efb907"
         },
