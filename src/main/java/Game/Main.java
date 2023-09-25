@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 class Sprite {
 
-    /*
+    /**
      *
      *	Sprite is the basic object that is drawn onto the screen. The dots
      *	are all Sprite objects. ConnectionSprite and BoxSprite are subclasses
@@ -38,7 +38,7 @@ class Sprite {
         height=0;
         x=0;
         y=0;
-        color=Color.BLACK;
+        color=Color.WHITE;
     }
 
     public void render(Graphics g) {
@@ -76,7 +76,7 @@ class ConnectionSprite extends Sprite {
     public static final int HORZ_CONN=1;
     public static final int VERT_CONN=2;
 
-    boolean connectionMade;	// Tracks wether the ConnectionSprite has been clicked on
+    boolean connectionMade;	// Tracks weather the ConnectionSprite has been clicked on
 
     public ConnectionSprite() {
         // Initialize all the fields
@@ -131,7 +131,7 @@ class BoxSprite extends Sprite {
     public BoxSprite() {
         super();
 
-        color=Color.WHITE;	//	Initially the box should be the same color as the background
+        color=Color.BLACK;	//	Initially the box should be the same color as the background
 
         horizontalConnections=new ConnectionSprite[2];
         verticalConnections=new ConnectionSprite[2];
@@ -149,8 +149,9 @@ class BoxSprite extends Sprite {
         boolean boxed=true;
 
         for(int i=0; i<2; i++) {
-            if(!horizontalConnections[i].connectionMade || !verticalConnections[i].connectionMade) {
-                boxed=false;
+            if (!horizontalConnections[i].connectionMade || !verticalConnections[i].connectionMade) {
+                boxed = false;
+                break;
             }
         }
 
@@ -170,15 +171,15 @@ class BoxSprite extends Sprite {
 
 class Dots extends JFrame implements MouseMotionListener, MouseListener {
 
-    public static final int DOT_NUMBER=15;	//	The number of dots on each side of the square game board
+    public static final int DOT_NUMBER=12;	//	The number of dots on each side of the square game board
     public static final int DOT_GAP=24;		//	The space between each dot
-    public static final int DOT_SIZE=4;		//	The length of the sides of the square dot
+    public static final int DOT_SIZE=5;		//	The length of the sides of the square dot
 
     public static final int PLAYER_ONE=1;
     public static final int PLAYER_TWO=2;
 
-    public static final Color PLAYER_ONE_COLOR=Color.ORANGE;	//	The color of player1's boxes
-    public static final Color PLAYER_TWO_COLOR=Color.GREEN;		// 	The color of player2's boxes
+    public static final Color PLAYER_ONE_COLOR=Color.gray;	//	The color of player1's boxes
+    public static final Color PLAYER_TWO_COLOR=Color.RED;		// 	The color of player2's boxes
 
     private ConnectionSprite[] horizontalConnections;	//	Array for all the ConnectionSprites that horizontally connect dots
     private ConnectionSprite[] verticalConnections;		//	Array for all the ConnectionSprites that vertically connect dots
@@ -203,7 +204,7 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
 
     public Dots() {
         super("Connect the Dots");
-        setSize(500, 600);
+        setSize(500, 500);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addMouseListener(this);
@@ -335,15 +336,15 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
 
         // Get the connection that encloses point (x, y) or return null if there isn't one
 
-        for(int i=0; i<horizontalConnections.length; i++) {
-            if(horizontalConnections[i].containsPoint(x, y)) {
-                return horizontalConnections[i];
+        for (ConnectionSprite horizontalConnection : horizontalConnections) {
+            if (horizontalConnection.containsPoint(x, y)) {
+                return horizontalConnection;
             }
         }
 
-        for(int i=0; i<verticalConnections.length; i++) {
-            if(verticalConnections[i].containsPoint(x, y)) {
-                return verticalConnections[i];
+        for (ConnectionSprite verticalConnection : verticalConnections) {
+            if (verticalConnection.containsPoint(x, y)) {
+                return verticalConnection;
             }
         }
 
@@ -363,16 +364,16 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     private int[] calculateScores() {
         int[] scores={0, 0};
 
-        for(int i=0; i<boxes.length; i++) {
-            if(boxes[i].isBoxed() && boxes[i].player!=0) {
-                scores[boxes[i].player - 1]++;
+        for (BoxSprite box : boxes) {
+            if (box.isBoxed() && box.player != 0) {
+                scores[box.player - 1]++;
             }
         }
 
         return scores;
     }
 
-    private boolean makeConnection(ConnectionSprite connection) {
+    private void makeConnection(ConnectionSprite connection) {
         boolean newBox=false;
 
         boolean[] boxStatusBeforeConnection=getBoxStatus();	//	The two boolean arrays are used to see if a new box was created after the connection was made
@@ -397,7 +398,6 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
 
         checkForGameOver();
 
-        return newBox;
     }
 
     private void checkForGameOver() {
@@ -452,61 +452,61 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     }
 
     private void paintBackground(Graphics g) {
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLACK);
         g.fillRect(0, 0, dim.width, dim.height);
     }
 
     private void paintDots(Graphics g) {
-        for(int i=0; i<dots.length; i++) {
-            dots[i].render(g);
+        for (Sprite dot : dots) {
+            dot.render(g);
         }
     }
 
     private void paintConnections(Graphics g) {
-        for(int i=0; i<horizontalConnections.length; i++) {
+        for (ConnectionSprite horizontalConnection : horizontalConnections) {
 
-            if(!horizontalConnections[i].connectionMade) {
-                if(horizontalConnections[i].containsPoint(mousex, mousey)) {
-                    horizontalConnections[i].color=Color.RED;
+            if (!horizontalConnection.connectionMade) {
+                if (horizontalConnection.containsPoint(mousex, mousey)) {
+                    horizontalConnection.color = Color.RED;
                 } else {
-                    horizontalConnections[i].color=Color.WHITE;
+                    horizontalConnection.color = Color.BLACK;
                 }
             } else {
-                horizontalConnections[i].color=Color.BLUE;
+                horizontalConnection.color = Color.WHITE;
             }
 
-            horizontalConnections[i].render(g);
+            horizontalConnection.render(g);
         }
 
-        for(int i=0; i<verticalConnections.length; i++) {
+        for (ConnectionSprite verticalConnection : verticalConnections) {
 
-            if(!verticalConnections[i].connectionMade) {
-                if(verticalConnections[i].containsPoint(mousex, mousey)) {
-                    verticalConnections[i].color=Color.RED;
+            if (!verticalConnection.connectionMade) {
+                if (verticalConnection.containsPoint(mousex, mousey)) {
+                    verticalConnection.color = Color.RED;
                 } else {
-                    verticalConnections[i].color=Color.WHITE;
+                    verticalConnection.color = Color.BLACK;
                 }
             } else {
-                verticalConnections[i].color=Color.BLUE;
+                verticalConnection.color = Color.WHITE;
             }
 
-            verticalConnections[i].render(g);
+            verticalConnection.render(g);
         }
     }
 
     public void paintBoxes(Graphics g) {
-        for(int i=0; i<boxes.length; i++) {
-            if(boxes[i].isBoxed()) {
-                if(boxes[i].player==PLAYER_ONE) {
-                    boxes[i].color=PLAYER_ONE_COLOR;
-                } else if(boxes[i].player==PLAYER_TWO) {
-                    boxes[i].color=PLAYER_TWO_COLOR;
+        for (BoxSprite box : boxes) {
+            if (box.isBoxed()) {
+                if (box.player == PLAYER_ONE) {
+                    box.color = PLAYER_ONE_COLOR;
+                } else if (box.player == PLAYER_TWO) {
+                    box.color = PLAYER_TWO_COLOR;
                 }
             } else {
-                boxes[i].color=Color.WHITE;
+                box.color = Color.BLACK;
             }
 
-            boxes[i].render(g);
+            box.render(g);
         }
     }
 
@@ -518,7 +518,7 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
 
         //Color currentColor=(activePlayer==PLAYER_ONE) ? PLAYER_ONE_COLOR : PLAYER_TWO_COLOR ;
         //g.setColor(currentColor);
-        g.setColor(Color.BLACK);
+        g.setColor(Color.WHITE);
         g.drawString(status, 10, dim.height-50);
 
         g.setColor(PLAYER_ONE_COLOR);

@@ -4,48 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="872df37b-66f5-42fd-867a-add94047eb0a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/GUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Game/Main.java" afterDir="false" />
+    <list default="true" id="872df37b-66f5-42fd-867a-add94047eb0a" name="Changes" comment="Interfaz Funcional">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/assets/badlogic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Dataload/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Dataload/GameAssetManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Dataload/GameData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Dataload/GameDataController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Dataload/GameInfra.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Dataload/GameSoundManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Dataload/WorldData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/GameObjectManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/baseObjects/Box.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/baseObjects/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/baseObjects/GameObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/entities/BGController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/entities/Ball.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/entities/Dot.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/entities/DotIndex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/entities/DotManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/entities/PlayerScoreManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Objects/entities/StageObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Screens/PlayScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Widgets/DebugRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/core/src/com/mygdx/game/Widgets/HUD.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/desktop/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/desktop/src/com/mygdx/game/DesktopLauncher.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +28,37 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Interfaz" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -91,7 +85,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Interfaz",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-21",
     "last_opened_file_path": "C:/Users/HP/Documents/GitHub/Proyecto-1_CE1103",
@@ -100,9 +94,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "configurable.group.tools",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -112,6 +106,14 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Game" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Game.Dots" />
+      <module name="Proyect 1" />
+      <option name="PROGRAM_PARAMETERS" value="$MAVEN_REPOSITORY$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -136,8 +138,17 @@
       <workItem from="1695603095973" duration="95000" />
       <workItem from="1695603191682" duration="198000" />
       <workItem from="1695603402608" duration="57000" />
-      <workItem from="1695603472369" duration="688000" />
+      <workItem from="1695603472369" duration="3644000" />
     </task>
+    <task id="LOCAL-00001" summary="Interfaz Funcional">
+      <option name="closed" value="true" />
+      <created>1695604364647</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695604364647</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,5 +156,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Interfaz Funcional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Interfaz Funcional" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
