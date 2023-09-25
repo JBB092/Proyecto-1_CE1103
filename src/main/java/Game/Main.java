@@ -48,9 +48,9 @@ class Sprite {
 
         Polygon renderedShape=new Polygon();
         for(int i=0; i<shape.npoints; i++) {
-            int renderedx=shape.xpoints[i] + x + width / 2;
-            int renderedy=shape.ypoints[i] + y + height / 2;
-            renderedShape.addPoint(renderedx, renderedy);
+            int renderedX=shape.xpoints[i] + x + width / 2;
+            int renderedY=shape.ypoints[i] + y + height / 2;
+            renderedShape.addPoint(renderedX, renderedY);
         }
         g.fillPolygon(renderedShape);
     }
@@ -66,14 +66,14 @@ class ConnectionSprite extends Sprite {
 
     /*
      *
-     *	ConnectionSprite is a sublcass of Sprite. There are two types of connections: vertical
+     *	ConnectionSprite is a subclass of Sprite. There are two types of connections: vertical
      *	connections between dots and horizontal connections between sprites. The static method
      *	createConnection is a convenience method to create the ConnectionSprite at the proper
      *	coordinates and build its shape.
      *
      */
 
-    public static final int HORZ_CONN=1;
+    public static final int HORIZ_CONN=1;
     public static final int VERT_CONN=2;
 
     boolean connectionMade;	// Tracks weather the ConnectionSprite has been clicked on
@@ -89,7 +89,7 @@ class ConnectionSprite extends Sprite {
     public static ConnectionSprite createConnection(int type, int x, int y) {
         ConnectionSprite conn=new ConnectionSprite();
 
-        if(type==ConnectionSprite.HORZ_CONN) {
+        if(type==ConnectionSprite.HORIZ_CONN) {
             conn.width=Dots.DOT_GAP;
             conn.height=Dots.DOT_SIZE;
         } else if(type==ConnectionSprite.VERT_CONN) {
@@ -256,7 +256,7 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
             int rowsX=i / (DOT_NUMBER-1);
             int horX=centerX - side / 2 + DOT_SIZE + colsX * space;
             int horY=centerY - side / 2 + rowsX * space;
-            horizontalConnections[i]=ConnectionSprite.createConnection(ConnectionSprite.HORZ_CONN, horX, horY);
+            horizontalConnections[i]=ConnectionSprite.createConnection(ConnectionSprite.HORIZ_CONN, horX, horY);
 
             int colsY=i % DOT_NUMBER;
             int rowsY=i / DOT_NUMBER;
