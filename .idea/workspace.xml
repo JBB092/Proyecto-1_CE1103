@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="872df37b-66f5-42fd-867a-add94047eb0a" name="Changes" comment="Interfaz Funcional">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="872df37b-66f5-42fd-867a-add94047eb0a" name="Changes" comment="Cambios a la interfaz">
       <change beforePath="$PROJECT_DIR$/src/main/java/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +135,7 @@
       <workItem from="1695603095973" duration="95000" />
       <workItem from="1695603191682" duration="198000" />
       <workItem from="1695603402608" duration="57000" />
-      <workItem from="1695603472369" duration="3644000" />
+      <workItem from="1695603472369" duration="4655000" />
     </task>
     <task id="LOCAL-00001" summary="Interfaz Funcional">
       <option name="closed" value="true" />
@@ -148,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695604364647</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Cambios a la interfaz">
+      <option name="closed" value="true" />
+      <created>1695607419141</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695607419141</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +162,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Interfaz Funcional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Interfaz Funcional" />
+    <MESSAGE value="Cambios a la interfaz" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios a la interfaz" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -178,8 +178,8 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     public static final int PLAYER_ONE=1;
     public static final int PLAYER_TWO=2;
 
-    public static final Color PLAYER_ONE_COLOR=Color.gray;	//	The color of player1's boxes
-    public static final Color PLAYER_TWO_COLOR=Color.RED;		// 	The color of player2's boxes
+    public static final Color PLAYER_ONE_COLOR=Color.LIGHT_GRAY;	//	The color of player1's boxes
+    public static final Color PLAYER_TWO_COLOR=Color.BLUE;		// 	The color of player2's boxes
 
     private ConnectionSprite[] horizontalConnections;	//	Array for all the ConnectionSprites that horizontally connect dots
     private ConnectionSprite[] verticalConnections;		//	Array for all the ConnectionSprites that vertically connect dots
