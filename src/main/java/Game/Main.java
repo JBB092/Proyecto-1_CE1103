@@ -178,8 +178,8 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     public static final int PLAYER_ONE=1;
     public static final int PLAYER_TWO=2;
 
-    public static final Color PLAYER_ONE_COLOR=Color.LIGHT_GRAY;	//	The color of player1's boxes
-    public static final Color PLAYER_TWO_COLOR=Color.BLUE;		// 	The color of player2's boxes
+    public static final Color PLAYER_ONE_COLOR= new Color(158, 4, 4, 255);    //	The color of player1's boxes
+    public static final Color PLAYER_TWO_COLOR=new Color(4, 15, 140, 255); // 	The color of player2's boxes
 
     private ConnectionSprite[] horizontalConnections;	//	Array for all the ConnectionSprites that horizontally connect dots
     private ConnectionSprite[] verticalConnections;		//	Array for all the ConnectionSprites that vertically connect dots
@@ -188,16 +188,16 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
 
     private Dimension dim;		//	Window dimensions
 
-    private int clickx;		//	Holds the x coordinate of mouse click
-    private int clicky;		// 	Holds the y coordinate of mouse click
+    private int clickX;		//	Holds the x coordinate of mouse click
+    private int clickY;		// 	Holds the y coordinate of mouse click
 
-    private int mousex;		// 	Holds the x coordinate of the mouse location
-    private int mousey; 	// 	Holds the y coordinate of the mouse location
+    private int mouseX;		// 	Holds the x coordinate of the mouse location
+    private int mouseY; 	// 	Holds the y coordinate of the mouse location
 
-    private int centerx;	//	x coordinate of the center of the gameboard
-    private int centery; 	// 	y coordinate of the center of the gameborad
+    private int centerX;	//	x coordinate of the center of the game-board
+    private int centerY; 	// 	y coordinate of the center of the gamepad
 
-    private int side;	//	Length of the sides of the square gameboard
+    private int side;	//	Length of the sides of the square game-board
     private int space;	// Length of 1 dot + 1 connection
 
     private int activePlayer;	// 	Holds the current player
@@ -221,14 +221,14 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     private void loadProperties() {
         //	Initialize fields
 
-        clickx=0;
-        clicky=0;
-        mousex=0;
-        mousey=0;
+        clickX=0;
+        clickY=0;
+        mouseX=0;
+        mouseY=0;
 
         dim=getSize();
-        centerx=dim.width/2;
-        centery=(dim.height - 100) /2;
+        centerX=dim.width/2;
+        centerY=(dim.height - 100) /2;
 
         side=DOT_NUMBER * DOT_SIZE + (DOT_NUMBER - 1) * DOT_GAP;	//	There is one less connection than dot per side
         space=DOT_SIZE + DOT_GAP;
@@ -239,31 +239,30 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
         horizontalConnections=new ConnectionSprite[(DOT_NUMBER-1) * DOT_NUMBER];
         verticalConnections=new ConnectionSprite[(DOT_NUMBER-1) * DOT_NUMBER];
 
-        /*
-         *
-         *	There are two ways to cycle through the Connections, Boxes, and Dots grids. This way uses only 1 for
-         *	loop and keeps track of the current row and column number in colsx, rowsx, colsy, rowsy. colsx and rowsx
-         *	track the columns and rows for the horizontalConnections while colsy and rowsy track the columns and
-         *	rows for the vertical connections. The reason to have different fields for vertical and horizontal
-         *	connections is so that both grids will be filled in left to right and then top to bottom (rows first
-         *	then columns). This makes it easier to match the connection up to box or boxes it borders. Simple setting
-         *	colsy=rowsx and rowsy=colsx will put the vertical connections on the correct place on the screen
-         *	but they won't match up to the boxes correctly.
-         *
+        /**
+         	There are two ways to cycle through the Connections, Boxes, and Dots grids. This way uses only 1 for
+         	loop and keeps track of the current row and column number in colsX, rowsX, colsY, rowsY. colsX and rowsX
+         	track the columns and rows for the horizontalConnections while colsY and rowsY track the columns and
+         	rows for the vertical connections. The reason to have different fields for vertical and horizontal
+         	connections is so that both grids will be filled in left to right and then top to bottom (rows first
+         	then columns). This makes it easier to match the connection up to box or boxes it borders. Simple setting
+         	colsY=rowsX and rowsY=colsX will put the vertical connections on the correct place on the screen,
+         	but they won't match up to the boxes correctly.
+
          */
 
         for(int i=0; i<horizontalConnections.length; i++) {
-            int colsx=i % (DOT_NUMBER-1);
-            int rowsx=i / (DOT_NUMBER-1);
-            int horx=centerx - side / 2 + DOT_SIZE + colsx * space;
-            int hory=centery - side / 2 + rowsx * space;
-            horizontalConnections[i]=ConnectionSprite.createConnection(ConnectionSprite.HORZ_CONN, horx, hory);
+            int colsX=i % (DOT_NUMBER-1);
+            int rowsX=i / (DOT_NUMBER-1);
+            int horX=centerX - side / 2 + DOT_SIZE + colsX * space;
+            int horY=centerY - side / 2 + rowsX * space;
+            horizontalConnections[i]=ConnectionSprite.createConnection(ConnectionSprite.HORZ_CONN, horX, horY);
 
-            int colsy=i % DOT_NUMBER;
-            int rowsy=i / DOT_NUMBER;
-            int vertx=centerx - side / 2 + colsy * space;
-            int verty=centery - side / 2 + DOT_SIZE + rowsy * space;
-            verticalConnections[i]=ConnectionSprite.createConnection(ConnectionSprite.VERT_CONN, vertx, verty);
+            int colsY=i % DOT_NUMBER;
+            int rowsY=i / DOT_NUMBER;
+            int vertX=centerX - side / 2 + colsY * space;
+            int vertY=centerY - side / 2 + DOT_SIZE + rowsY * space;
+            verticalConnections[i]=ConnectionSprite.createConnection(ConnectionSprite.VERT_CONN, vertX, vertY);
         }
     }
 
@@ -271,7 +270,7 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
 
         /*
          *
-         *	loadBoxes cycles through the box grid the way loadConnection does. There is oneless box per side
+         *	loadBoxes cycles through the box grid the way loadConnection does. There is one less box per side
          *	than dot per side.
          *
          */
@@ -282,8 +281,8 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
             int cols=i % (DOT_NUMBER-1);
             int rows=i / (DOT_NUMBER-1);
 
-            int boxx=centerx - side / 2 + DOT_SIZE + cols * space;
-            int boxy=centery - side / 2 + DOT_SIZE + rows * space;
+            int boxX=centerX - side / 2 + DOT_SIZE + cols * space;
+            int boxY=centerY - side / 2 + DOT_SIZE + rows * space;
 
             ConnectionSprite[] horConn=new ConnectionSprite[2];
             horConn[0]=horizontalConnections[i];
@@ -293,7 +292,7 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
             verConn[0]=verticalConnections[i + rows];
             verConn[1]=verticalConnections[i + rows + 1];
 
-            boxes[i]=BoxSprite.createBox(boxx, boxy, horConn, verConn);
+            boxes[i]=BoxSprite.createBox(boxX, boxY, horConn, verConn);
         }
     }
 
@@ -314,8 +313,8 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
                 Sprite dot=new Sprite();
                 dot.width=DOT_SIZE;
                 dot.height=DOT_SIZE;
-                dot.x=centerx - side/2 + cols * space;
-                dot.y=centery - side/2 + rows * space;
+                dot.x=centerX - side/2 + cols * space;
+                dot.y=centerY - side/2 + rows * space;
                 dot.shape.addPoint(-DOT_SIZE/2, -DOT_SIZE/2);
                 dot.shape.addPoint(-DOT_SIZE/2, DOT_SIZE/2);
                 dot.shape.addPoint(DOT_SIZE/2, DOT_SIZE/2);
@@ -410,7 +409,7 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     }
 
     private void handleClick() {
-        ConnectionSprite connection=getConnection(clickx, clicky);
+        ConnectionSprite connection=getConnection(clickX, clickY);
         if(connection==null)
             return;
 
@@ -423,8 +422,8 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     }
 
     public void mouseMoved(MouseEvent event) {
-        mousex=event.getX();
-        mousey=event.getY();
+        mouseX=event.getX();
+        mouseY=event.getY();
         repaint();
     }
 
@@ -433,8 +432,8 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     }
 
     public void mouseClicked(MouseEvent event) {
-        clickx=event.getX();
-        clicky=event.getY();
+        clickX=event.getX();
+        clickY=event.getY();
 
         handleClick();
     }
@@ -466,13 +465,13 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
         for (ConnectionSprite horizontalConnection : horizontalConnections) {
 
             if (!horizontalConnection.connectionMade) {
-                if (horizontalConnection.containsPoint(mousex, mousey)) {
-                    horizontalConnection.color = Color.RED;
+                if (horizontalConnection.containsPoint(mouseX, mouseY)) {
+                    horizontalConnection.color = new Color(10, 160, 8, 230);
                 } else {
                     horizontalConnection.color = Color.BLACK;
                 }
             } else {
-                horizontalConnection.color = Color.WHITE;
+                horizontalConnection.color = new Color(225, 225, 228, 230);
             }
 
             horizontalConnection.render(g);
@@ -481,13 +480,13 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
         for (ConnectionSprite verticalConnection : verticalConnections) {
 
             if (!verticalConnection.connectionMade) {
-                if (verticalConnection.containsPoint(mousex, mousey)) {
-                    verticalConnection.color = Color.RED;
+                if (verticalConnection.containsPoint(mouseX, mouseY)) {
+                    verticalConnection.color = new Color(10, 160, 8, 230);
                 } else {
                     verticalConnection.color = Color.BLACK;
                 }
             } else {
-                verticalConnection.color = Color.WHITE;
+                verticalConnection.color = new Color(225, 225, 228,229);
             }
 
             verticalConnection.render(g);
@@ -512,12 +511,10 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
 
     public void paintStatus(Graphics g) {
         int[] scores=calculateScores();
-        String status="It is player" + activePlayer + "'s turn";
+        String status="It is Player" + activePlayer + "'s turn";
         String status2="Player 1: " + scores[0];
         String status3="Player 2: " + scores[1];
 
-        //Color currentColor=(activePlayer==PLAYER_ONE) ? PLAYER_ONE_COLOR : PLAYER_TWO_COLOR ;
-        //g.setColor(currentColor);
         g.setColor(Color.WHITE);
         g.drawString(status, 10, dim.height-50);
 
@@ -533,7 +530,7 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     }
 
     public void paint(Graphics g) {
-        //	The double buffer technique is not really necessarry because there is no animation
+        //	The double buffer technique is not really necessary because there is no animation
 
         Image bufferImage=createImage(dim.width, dim.height);
         Graphics bufferGraphics=bufferImage.getGraphics();
