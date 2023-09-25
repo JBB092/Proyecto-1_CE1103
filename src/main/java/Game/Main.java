@@ -204,7 +204,7 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
 
     public Dots() {
         super("Connect the Dots");
-        setSize(500, 500);
+        setSize(500, 550);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addMouseListener(this);
@@ -530,7 +530,7 @@ class Dots extends JFrame implements MouseMotionListener, MouseListener {
     }
 
     public void paint(Graphics g) {
-        //	The double buffer technique is not really necessary because there is no animation
+        /** The double buffer technique is not really necessary because there is no animation */
 
         Image bufferImage=createImage(dim.width, dim.height);
         Graphics bufferGraphics=bufferImage.getGraphics();

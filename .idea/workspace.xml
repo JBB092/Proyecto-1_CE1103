@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="872df37b-66f5-42fd-867a-add94047eb0a" name="Changes" comment="Cambios a la interfaz">
+    <list default="true" id="872df37b-66f5-42fd-867a-add94047eb0a" name="Changes" comment="Cambios a los colores">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Dots.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Dots.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +141,7 @@
       <workItem from="1695603095973" duration="95000" />
       <workItem from="1695603191682" duration="198000" />
       <workItem from="1695603402608" duration="57000" />
-      <workItem from="1695603472369" duration="6934000" />
+      <workItem from="1695603472369" duration="8113000" />
     </task>
     <task id="LOCAL-00001" summary="Interfaz Funcional">
       <option name="closed" value="true" />
@@ -180,7 +183,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695610860482</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Cambios a los colores">
+      <option name="closed" value="true" />
+      <created>1695611304213</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1695611304213</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +201,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Interfaz Funcional" />
     <MESSAGE value="Cambios a la interfaz" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambios a la interfaz" />
+    <MESSAGE value="Cambios a los colores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios a los colores" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
