@@ -21,7 +21,8 @@ public class JsonClient {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
             // Crear un mensaje en formato JSON
-            Message message = new Message("Cliente", "Hola, servidor!");
+            Message message = new Message("Cliente", "Hola, servidor!", true);
+            message.setNewConnection(true);  // Marcar como nueva conexión
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonMessage = objectMapper.writeValueAsString(message);
 
@@ -42,4 +43,3 @@ public class JsonClient {
         }
     }
 }
-
