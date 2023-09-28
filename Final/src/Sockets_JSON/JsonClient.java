@@ -8,6 +8,9 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+import Game.*;
+import DataStructures.*;
+
 public class JsonClient {
 
     public static void main(String[] args) {
@@ -40,10 +43,28 @@ public class JsonClient {
                 System.out.println("Conectado con ID de cliente: " + responseMessage.getClientId());
             }
 
+            // Crear un mensaje en formato JSON con el mesh
+            Mesh mesh = createMesh();  // Define tu lógica para crear el objeto Mesh
+            String meshJson = objectMapper.writeValueAsString(mesh);
+            Message meshMessage = new Message("Cliente", meshJson, false, -1);
+            meshMessage.setMessageType(Message.MessageType.MESH_JSON);
+            String jsonMeshMessage = objectMapper.writeValueAsString(meshMessage);
+
+            // Enviar el mensaje del mesh al servidor
+            out.println(jsonMeshMessage);
+
             // Cerrar conexión
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static Mesh createMesh() {
+        // Aquí deberías implementar la lógica para crear un objeto Mesh
+        // Retorna un objeto Mesh válido
+        Mesh mesh = new Mesh();
+        // Agrega puntos, líneas, cajas, etc. al mesh según sea necesario
+        return mesh;
     }
 }

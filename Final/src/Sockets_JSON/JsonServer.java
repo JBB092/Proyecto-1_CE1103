@@ -11,6 +11,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+import DataStructures.Mesh;
 import DataStructures.Queue;
 
 public class JsonServer {
@@ -111,7 +112,18 @@ public class JsonServer {
                     }
                 }
 
-                // Resto del código omitido para brevedad...
+               if (message.getMessageType() == Message.MessageType.MESH_JSON) {
+                    String meshJson=message.getContent();
+                    ObjectMapper objectMapper2= new ObjectMapper();
+                    try {
+                        Mesh mesh=objectMapper2.readValue(meshJson, Mesh.class);
+                        System.out.println("Mesh recibido del cliente: "+mesh);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } 
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

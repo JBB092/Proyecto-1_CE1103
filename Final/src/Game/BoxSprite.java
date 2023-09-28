@@ -2,7 +2,7 @@ package Game;
 
 import java.awt.Color;
 
-class BoxSprite extends Sprite{
+public class BoxSprite extends Sprite{
 
     /**
      * The Horizontal connections.

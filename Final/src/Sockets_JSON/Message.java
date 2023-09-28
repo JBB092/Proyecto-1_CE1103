@@ -68,6 +68,7 @@ public class Message {
 
     public enum MessageType{
         NEW_CLIENT,
-        REGULAR_MESSAGE
+        REGULAR_MESSAGE,
+        MESH_JSON
     }
 }

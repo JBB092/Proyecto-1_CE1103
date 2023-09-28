@@ -12,11 +12,15 @@ import java.util.LinkedList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import DataStructures.Mesh;
+
 /**
  * This class represents a JFrame that implements MouseMotionListener and MouseListener.
  * It is used for handling mouse events and drawing dots.
  */
-class GameBoard extends JFrame implements MouseMotionListener, MouseListener {
+public class GameBoard extends JFrame implements MouseMotionListener, MouseListener {
 
     /**
      * The constant DOT_NUMBER.
@@ -663,6 +667,21 @@ class GameBoard extends JFrame implements MouseMotionListener, MouseListener {
         paintStatus(bufferGraphics);
 
         g.drawImage(bufferImage, 0, 0, null);
+    }
+
+    private void sendMeshToServer(Mesh mesh){
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            // Convert Mesh object to JSON
+            String meshJson = objectMapper.writeValueAsString(mesh);
+
+            // TODO: Send the meshJson to the server (e.g., over sockets)
+            // Replace the following line with your socket communication logic
+            System.out.println("Sending mesh to server: " + meshJson);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
