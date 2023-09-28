@@ -2,7 +2,6 @@ package Game;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.Polygon;
 import java.awt.Color;
 
 import java.awt.event.MouseListener;
