@@ -1,0 +1,73 @@
+package Serial;
+
+import com.fazecast.jSerialComm.*;
+
+import java.nio.charset.StandardCharsets;
+
+import DataStructures.DoublyLinkedList;
+
+
+/**
+ Clase principal para la obtención de los datos enviados al puerto serial
+ Esta clase establece una conexión con un puerto serial y lee los datos enviados desde un dispositivo conectado.
+ Los datos recibidos se procesan y se realizan acciones en función del contenido recibido.
+ @author José Barquero
+ */
+public class ArduinoSerialReceiver {
+    /**
+     Función principal encargada de la lógica sobre los puertos seriales.
+
+     @param args Argumentos de la línea de comandos (no se utilizan en este programa)
+     */
+    public static void main(String[] args) {
+
+        //Crear una lista doblemente enlazada para almacenar los datos recibidos.
+        DoublyLinkedList list = new DoublyLinkedList();
+
+        //Insertar algunos elementos en la lista para demostrar su funcionalidad.
+        list.insertAtEnd(1);
+        list.insertAtEnd(2);
+        list.insertAtEnd(3);
+
+        //Obtener el puerto serial con el que se va a comunicar.
+        SerialPort sp = SerialPort.getCommPort("COM3"); 
+    
+        // Configura la velocidad de baudios y otros parámetros según los de Arduino.
+        sp.setBaudRate(9600); 
+        
+        // Abre el puerto serial
+        if (sp.openPort()) {
+            System.out.println("Puerto serial abierto correctamente."); //Verificación del puerto serial abierto
+        } else {
+            System.err.println("Error al abrir el puerto serial."); //Mensaje de error por si el puerto serial no logró abrirse adecuadamente
+            return;
+        }
+        
+        // Lee datos del puerto serial y muestra los resultados.
+        while (true) {
+            if (sp.bytesAvailable() > 0) { //Se verifica que hayan bytes disponibles para leer en el puerto
+                byte[] readBuffer = new byte[sp.bytesAvailable()]; //Se crea un buffer el cual permite tener un control de los bytes que son recibidos del arduino
+                int bytesRead = sp.readBytes(readBuffer, readBuffer.length); //Se leen los datos recibidos
+                String data = new String(readBuffer, StandardCharsets.UTF_8); //Se "traducen" los bytes recibidos para poder ser analizados
+                System.out.println("Datos recibidos desde Arduino: " + data); //Impresión de los datos obtenidos para verificar su correcto funcionamiento
+                
+                //Realizar acciones basadas en los datos recibidos-
+                if(data.trim().equalsIgnoreCase("r")){
+                    list.displayCurrent();
+                }
+                if(data.trim().equalsIgnoreCase("+x")){
+                    list.moveCurrentForward();
+                }
+                if(data.trim().equalsIgnoreCase("-x")){
+                    list.moveCurrentBackward();
+                }
+            }
+            
+            try {
+                Thread.sleep(100); // Espera un breve período para evitar un ciclo de lectura muy rápido
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
