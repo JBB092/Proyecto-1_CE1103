@@ -4,14 +4,16 @@ public class Message {
     private String sender;
     private String content;
     private boolean isNewConnection;  // Nuevo campo para indicar si es una nueva conexión
+    private int clientId;
 
     public Message() {
     }
 
-    public Message(String sender, String content, boolean isNewConnection) {
+    public Message(String sender, String content, boolean isNewConnection, int clientId) {
         this.sender = sender;
         this.content = content;
         this.isNewConnection = isNewConnection;
+        this.clientId=clientId;
     }
 
     public String getSender() {
@@ -44,6 +46,11 @@ public class Message {
                 "sender='" + sender + '\'' +
                 ", content='" + content + '\'' +
                 ", isNewConnection=" + isNewConnection +
+                ", clientId=" + clientId +
                 '}';
+    }
+
+    public int getClientId(){
+        return clientId;
     }
 }

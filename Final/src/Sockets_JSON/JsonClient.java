@@ -20,9 +20,8 @@ public class JsonClient {
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-            // Crear un mensaje en formato JSON
-            Message message = new Message("Cliente", "Hola, servidor!", true);
-            message.setNewConnection(true);  // Marcar como nueva conexión
+            // Crear un mensaje en formato JSON para indicar una nueva conexión
+            Message message = new Message("Cliente", "Hola, servidor!", true, -1);  // El ID será asignado por el servidor
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonMessage = objectMapper.writeValueAsString(message);
 
@@ -34,7 +33,11 @@ public class JsonClient {
 
             // Convertir el JSON a un objeto
             Message responseMessage = objectMapper.readValue(jsonResponse, Message.class);
-            System.out.println("Respuesta del servidor: " + responseMessage);
+            
+            // Si es una nueva conexión, actualizar el ID asignado por el servidor
+            if (responseMessage.isNewConnection() && responseMessage.getClientId() != -1) {
+                System.out.println("Conectado con ID de cliente: " + responseMessage.getClientId());
+            }
 
             // Cerrar conexión
             socket.close();

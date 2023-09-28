@@ -11,9 +11,15 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+import DataStructures.Queue;
+
 public class JsonServer {
 
     private static List<PrintWriter> clientWriters = new ArrayList<>();
+    private static Queue clientQueue = new Queue();  // Cola para los clientes
+
+    private static int clientIdCounter = 1;  // Contador para asignar IDs únicos
+
 
     public static void main(String[] args) {
         try {
@@ -68,10 +74,17 @@ public class JsonServer {
 
                 // Si es una nueva conexión, enviar mensaje a todos los clientes
                 if (message.isNewConnection()) {
+                    // Asignar un ID único al cliente
+                    int clientId = assignClientId();
+
+                    // Agregar el cliente a la cola
+                    clientQueue.enqueue(clientId);
+
+                    // Enviar mensaje a todos los clientes
                     synchronized (clientWriters) {
                         for (PrintWriter writer : clientWriters) {
                             if (writer != out) {
-                                Message responseMessage = new Message("Servidor", "Nuevo cliente conectado: " + message.getContent(), false);
+                                Message responseMessage = new Message("Servidor", "Nuevo cliente conectado: " + message.getContent(), false, clientId);
                                 responseMessage.setNewConnection(true);
                                 String jsonResponse = objectMapper.writeValueAsString(responseMessage);
                                 writer.println(jsonResponse);
@@ -84,6 +97,10 @@ public class JsonServer {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+
+        private int assignClientId(){
+            return clientIdCounter++;
         }
     }
 }
