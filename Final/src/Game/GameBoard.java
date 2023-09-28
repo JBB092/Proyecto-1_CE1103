@@ -12,8 +12,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import DataStructures.DoublyLinkedList;
-
 class GameBoard extends JFrame implements MouseMotionListener, MouseListener {
 
     public static final int DOT_NUMBER=12;	//	The number of dots on each side of the square game board
