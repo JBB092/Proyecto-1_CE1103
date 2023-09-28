@@ -3,7 +3,6 @@
 ### Algoritmos y Estructuras de Datos I
 ##### Estudiantes:
 - José Bernardo Barquero Bonilla (2023150476)
-- Marvin Josué Jiménez Zúñiga (2023236446)
 - Diego Alonso Elizondo Mendoza (2023138264)
 #### Profesor:
 - Luis Alonso Barboza Artavia (labarboza@tec.ac.cr)
