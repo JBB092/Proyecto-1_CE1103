@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidGradleBuildConfiguration">
+    <option name="CONTINUE_FAILED_BUILD" value="false" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="872df37b-66f5-42fd-867a-add94047eb0a" name="Changes" comment="Cambios a los colores">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/bin/ArduinoFX.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/bin/ArduinoFX.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/Serial/ArduinoSerialReceiver.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/Serial/ArduinoSerialReceiver.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/Serial/package-summary.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/Serial/package-summary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/Serial/package-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/Serial/package-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/allclasses-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/allclasses-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/allpackages-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/allpackages-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/element-list" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/element-list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/help-doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/help-doc.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/index-all.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/index-all.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/jquery-ui.overrides.css" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/jquery-ui.overrides.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/ADDITIONAL_LICENSE_INFO" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/ASSEMBLY_EXCEPTION" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/jquery.md" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/jquery.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/jqueryUI.md" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/legal/jqueryUI.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/overview-tree.html" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/overview-tree.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/script-dir/jquery-3.6.1.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/script-dir/jquery-3.6.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/script-dir/jquery-ui.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/script-dir/jquery-ui.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/script-dir/jquery-ui.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/script-dir/jquery-ui.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/javadoc/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/Arduino.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/Arduino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/ArduinoFX.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/ArduinoFX.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/ArduinoSerialReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/ArduinoSerialReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/JavaFX_Arduino.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/JavaFX_Arduino.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/Serial/ArduinoSerialReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/Serial/ArduinoSerialReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/Serial/DoublyLinkedListMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/SerialJava/src/Serial/DoublyLinkedListMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/TestJSerialComm/SendDataArduinoToJava/SendDataArduinoToJava.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/TestJSerialComm/SendDataArduinoToJava/SendDataArduinoToJava.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/TestJSerialComm/TestJSerialComm.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/TestJSerialComm/TestJSerialComm.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/Conexión Serial/TestJSerialComm/TestJoystickShield/TestJoystickShield.ino" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/Conexión Serial/TestJSerialComm/TestJoystickShield/TestJoystickShield.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/BoxSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/BoxSprite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/ConnectionSprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/ConnectionSprite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Dots.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Dots.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Game/Sprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Game/Sprite.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/Tests/Conexión Serial/LibGDX">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/Interfaz" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2VrnVcJhNvQ1PkbpwOltcd7WJ8C" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "android.gradle.sync.needed": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
+    "last_opened_file_path": "C:/Users/HP/Documents/GitHub/Proyecto",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "gradle.compiler",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HP\Documents\GitHub\Proyecto-1_CE1103\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Game" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Game.Dots" />
+      <module name="Proyect" />
+      <option name="PROGRAM_PARAMETERS" value="$MAVEN_REPOSITORY$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="872df37b-66f5-42fd-867a-add94047eb0a" name="Changes" comment="" />
+      <created>1695601638410</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695601638410</updated>
+      <workItem from="1695601640084" duration="1447000" />
+      <workItem from="1695603095973" duration="95000" />
+      <workItem from="1695603191682" duration="198000" />
+      <workItem from="1695603402608" duration="57000" />
+      <workItem from="1695603472369" duration="8113000" />
+      <workItem from="1695872035037" duration="211000" />
+    </task>
+    <task id="LOCAL-00001" summary="Interfaz Funcional">
+      <option name="closed" value="true" />
+      <created>1695604364647</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1695604364647</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Cambios a la interfaz">
+      <option name="closed" value="true" />
+      <created>1695607419141</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1695607419141</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Cambios a la interfaz">
+      <option name="closed" value="true" />
+      <created>1695608819080</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695608819080</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cambios a la interfaz">
+      <option name="closed" value="true" />
+      <created>1695608850527</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695608850527</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Cambios a la interfaz">
+      <option name="closed" value="true" />
+      <created>1695610860482</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695610860482</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Cambios a los colores">
+      <option name="closed" value="true" />
+      <created>1695611304213</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1695611304213</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Interfaz Funcional" />
+    <MESSAGE value="Cambios a la interfaz" />
+    <MESSAGE value="Cambios a los colores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambios a los colores" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
