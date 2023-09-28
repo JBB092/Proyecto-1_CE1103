@@ -20,29 +20,37 @@ public class JsonServer {
 
     private static int clientIdCounter = 1;  // Contador para asignar IDs únicos
 
+    private static ServerState serverState = ServerState.WAITING_FOR_CLIENTS;
 
     public static void main(String[] args) {
         try {
-            // Crear el servidor en el puerto 12345
             ServerSocket serverSocket = new ServerSocket(12345);
             System.out.println("Servidor iniciado. Esperando conexiones...");
 
             while (true) {
-                // Esperar a que un cliente se conecte
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("Cliente conectado desde " + clientSocket.getInetAddress());
 
-                // Configurar streams de entrada y salida
-                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+                // Asignar un ID único al cliente
+                int clientId = assignClientId();
 
-                // Agregar el escritor del cliente a la lista
-                synchronized (clientWriters) {
-                    clientWriters.add(out);
+                // Añadir el cliente a la cola
+                clientQueue.enqueue(clientSocket, clientId);
+
+                // Verificar si podemos comenzar a enviar mensajes
+                if (serverState == ServerState.WAITING_FOR_CLIENTS && clientQueue.size() >= 2) {
+                    serverState = ServerState.SENDING_MESSAGES;
+
+                    // Enviar mensajes a todos los clientes
+                    synchronized (clientQueue) {
+                        for (Socket client : clientQueue.getAllClients()) {
+                            sendInitialMessage(client);
+                        }
+                    }
                 }
 
                 // Crear un hilo para manejar la comunicación con este cliente
-                Thread clientThread = new Thread(new ClientHandler(clientSocket, out));
+                Thread clientThread = new Thread(new ClientHandler(clientSocket));
                 clientThread.start();
             }
         } catch (IOException e) {
@@ -50,23 +58,33 @@ public class JsonServer {
         }
     }
 
+    private static void sendInitialMessage(Socket clientSocket) throws IOException {
+        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+        Message initialMessage = new Message("Servidor", "Puedes comenzar a enviar mensajes.", true, -1);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonMessage = objectMapper.writeValueAsString(initialMessage);
+        out.println(jsonMessage);
+    }
+
     private static class ClientHandler implements Runnable {
         private Socket clientSocket;
         private PrintWriter out;
 
-        public ClientHandler(Socket clientSocket, PrintWriter out) {
+        public ClientHandler(Socket clientSocket) {
             this.clientSocket = clientSocket;
-            this.out = out;
+            try {
+                this.out = new PrintWriter(clientSocket.getOutputStream(), true);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
         @Override
         public void run() {
             try {
-                // Recibir el mensaje en formato JSON desde el cliente
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 String jsonMessage = in.readLine();
 
-                // Convertir el JSON a un objeto
                 ObjectMapper objectMapper = new ObjectMapper();
                 Message message = objectMapper.readValue(jsonMessage, Message.class);
 
@@ -78,7 +96,7 @@ public class JsonServer {
                     int clientId = assignClientId();
 
                     // Agregar el cliente a la cola
-                    clientQueue.enqueue(clientId);
+                    clientQueue.enqueue(clientSocket, clientId);
 
                     // Enviar mensaje a todos los clientes
                     synchronized (clientWriters) {
@@ -93,14 +111,19 @@ public class JsonServer {
                     }
                 }
 
-                // Código restante
+                // Resto del código omitido para brevedad...
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
 
-        private int assignClientId(){
-            return clientIdCounter++;
-        }
+    private static int assignClientId() {
+        return clientIdCounter++;
+    }
+
+    private enum ServerState {
+        WAITING_FOR_CLIENTS,
+        SENDING_MESSAGES
     }
 }

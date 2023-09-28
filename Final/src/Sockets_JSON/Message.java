@@ -5,6 +5,7 @@ public class Message {
     private String content;
     private boolean isNewConnection;  // Nuevo campo para indicar si es una nueva conexión
     private int clientId;
+    private MessageType messageType;
 
     public Message() {
     }
@@ -13,8 +14,10 @@ public class Message {
         this.sender = sender;
         this.content = content;
         this.isNewConnection = isNewConnection;
-        this.clientId=clientId;
+        this.clientId = clientId;
+        this.messageType = MessageType.REGULAR_MESSAGE;
     }
+    
 
     public String getSender() {
         return sender;
@@ -40,6 +43,15 @@ public class Message {
         isNewConnection = newConnection;
     }
 
+    public MessageType getMessageType() {
+        return messageType;
+    }
+    
+    public void setMessageType(MessageType messageType) {
+        this.messageType = messageType;
+    }
+    
+
     @Override
     public String toString() {
         return "Message{" +
@@ -52,5 +64,10 @@ public class Message {
 
     public int getClientId(){
         return clientId;
+    }
+
+    public enum MessageType{
+        NEW_CLIENT,
+        REGULAR_MESSAGE
     }
 }

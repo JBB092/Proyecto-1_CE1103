@@ -99,4 +99,31 @@ public class DoublyLinkedList {
             System.out.println("Current ya está en el primer nodo.");
         }
     }
+
+    public int removeFromFront() {
+        if (isEmpty()) {
+            throw new RuntimeException("La lista está vacía.");
+        }
+
+        int data = head.getData();
+        head = head.getNext();
+
+        if (head != null) {
+            head.setPrev(null);
+        } else {
+            last = null;
+        }
+
+        return data;
+    }
+    
+    public int size() {
+        int count = 0;
+        Node current = head;
+        while (current != null) {
+            count++;
+            current = current.getNext();
+        }
+        return count;
+    }
 }

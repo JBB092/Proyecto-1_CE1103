@@ -1,75 +1,44 @@
 package DataStructures;
 
-/**
- * Esta clase representa una cola implementada utilizando lista doblemente enlazada.
- * En una cola, los elementos se añaden al final y se eliminan del principio (FIFO - First-In-First-Out)
- * @author José Barquero
- */
-public class Queue {
-    private DoublyLinkedList doublyLinkedList; //La lista doblemente enlazada que representa la cola
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
-    /**
-     * Constructor para crear una nueva instancia de la cola.
-     */
+public class Queue {
+    private DoublyLinkedList doublyLinkedList; // La lista doblemente enlazada que representa la cola
+    private List<Socket> clientSockets; // Lista de sockets de clientes
+
     public Queue() {
         doublyLinkedList = new DoublyLinkedList();
+        clientSockets = new ArrayList<>();
     }
 
-    
-    /** 
-     * Añade un elemento al final de la cola.
-     * 
-     * @param data El elemento a añadir a la cola.
-     */
-    public void enqueue(int data) {
-        doublyLinkedList.insertAtEnd(data);
+    public void enqueue(Socket socket, int clientId) {
+        clientSockets.add(socket);
+        doublyLinkedList.insertAtEnd(clientId);
     }
 
-    /**
-     * Elimina el primer elemento de la cola.
-     * Si la cola está vacía, no se realiza ninguna acción.
-     */
-    public void dequeue() {
+    public int dequeue() {
         if (!doublyLinkedList.isEmpty()) {
-            doublyLinkedList.head = doublyLinkedList.head.next;
-            if (doublyLinkedList.head != null) {
-                doublyLinkedList.head.prev = null;
-            } else {
-                doublyLinkedList.last = null;
-            }
-            System.out.println("Primer elemento eliminado de la cola.");
+            int removedClientId = doublyLinkedList.removeFromFront();
+            clientSockets.remove(0); // Remove the socket from the front (FIFO)
+            System.out.println("Primer elemento eliminado de la cola. Cliente desconectado: " + removedClientId);
+            return removedClientId;
         } else {
             System.out.println("La cola está vacía, no se puede eliminar un elemento.");
+            return -1; // Devolvemos un valor que indique que no se pudo eliminar
         }
     }
 
-    
-    /** 
-     * Obtiene el tamaño actual de la cola.
-     * 
-     * @return int El número de elementos en la cola
-     */
+    public boolean isEmpty() {
+        return doublyLinkedList.isEmpty();
+    }
+
     public int size() {
-        int count = 0;
-        Node current = doublyLinkedList.head;
-        while (current != null) {
-            count++;
-            current = current.getNext();
-        }
-        return count;
+        return doublyLinkedList.size();
     }
-    
-    public static void main(String[] args) {
-         Queue cola= new Queue();
 
-         cola.enqueue(10);
-         cola.enqueue(20);
-         cola.enqueue(30);
-
-         System.out.println("Tamaño de la cola: " + cola.size());
-
-         cola.dequeue();
-
-         System.out.println("Tamaño de la cola después de eliminar un elemento: "+ cola.size());
+    public List<Socket> getAllClients() {
+        return clientSockets;
     }
 }

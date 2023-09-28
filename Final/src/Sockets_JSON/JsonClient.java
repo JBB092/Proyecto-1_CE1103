@@ -22,6 +22,7 @@ public class JsonClient {
 
             // Crear un mensaje en formato JSON para indicar una nueva conexión
             Message message = new Message("Cliente", "Hola, servidor!", true, -1);  // El ID será asignado por el servidor
+            message.setMessageType(Message.MessageType.NEW_CLIENT);  // Establece el tipo de mensaje
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonMessage = objectMapper.writeValueAsString(message);
 
