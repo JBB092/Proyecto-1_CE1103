@@ -19,6 +19,8 @@ import DataStructures.Mesh;
 /**
  * This class represents a JFrame that implements MouseMotionListener and MouseListener.
  * It is used for handling mouse events and drawing dots.
+ * 
+ * @author Diego Elizondo
  */
 public class GameBoard extends JFrame implements MouseMotionListener, MouseListener {
 
@@ -76,6 +78,11 @@ public class GameBoard extends JFrame implements MouseMotionListener, MouseListe
     private int space;	// Length of 1 dot + 1 connection
 
     private int activePlayer;	// 	Holds the current player
+
+    private static int currentPositionX=0; //Initialize with a default value
+    private int currentPositionY=0; //Initialize with a default value
+
+    private ConnectionSprite currentConnection;
 
     /**
      * Initializes the JFrame for the "Connect the Dots" game.
@@ -354,6 +361,10 @@ public class GameBoard extends JFrame implements MouseMotionListener, MouseListe
                 activePlayer = PLAYER_ONE;
         }
 
+        if(currentConnection!=null){
+            currentConnection.color=Color.RED;
+        }
+
         checkForGameOver();
         // 	Call the checkForGameOver method
     }
@@ -421,6 +432,8 @@ public class GameBoard extends JFrame implements MouseMotionListener, MouseListe
     public void mouseMoved(MouseEvent event) {
         mouseX = event.getX();
         mouseY = event.getY();
+
+        currentConnection = getConnection(mouseX, mouseY);
         repaint();
     }
 
@@ -502,6 +515,34 @@ public class GameBoard extends JFrame implements MouseMotionListener, MouseListe
         for (Sprite dot : dots) {
             dot.render(g);
         }
+        for (int rows = 0; rows < DOT_NUMBER; rows++) {
+            for (int cols = 0; cols < DOT_NUMBER; cols++) {
+                Sprite dot = new Sprite();
+                dot.width = DOT_SIZE;
+                dot.height = DOT_SIZE;
+                dot.x = centerX - side / 2 + cols * space;
+                dot.y = centerY - side / 2 + rows * space;
+                dot.shape.addPoint(-DOT_SIZE / 2, -DOT_SIZE / 2);
+                dot.shape.addPoint(-DOT_SIZE / 2, DOT_SIZE / 2);
+                dot.shape.addPoint(DOT_SIZE / 2, DOT_SIZE / 2);
+                dot.shape.addPoint(DOT_SIZE / 2, -DOT_SIZE / 2);
+    
+                if (rows == currentPositionY && cols == currentPositionX) {
+                    g.setColor(Color.RED);  // Cambiar el color para la posición actual
+                } else {
+                    g.setColor(Color.WHITE);
+                }
+    
+                g.fillPolygon(dot.shape);
+                g.setColor(Color.BLACK);
+                g.drawPolygon(dot.shape);
+            }
+        }
+    }
+
+    public void changeMousePosition(int xChange) {
+        currentPositionX = Math.min(Math.max(currentPositionX + xChange, 0), DOT_NUMBER - 1);
+        repaint();  // Vuelve a pintar para mostrar la nueva posición del mouse
     }
 
     /**
@@ -677,11 +718,15 @@ public class GameBoard extends JFrame implements MouseMotionListener, MouseListe
             String meshJson = objectMapper.writeValueAsString(mesh);
 
             // TODO: Send the meshJson to the server (e.g., over sockets)
-            // Replace the following line with your socket communication logic
             System.out.println("Sending mesh to server: " + meshJson);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void movePositionRight(GameBoard gameBoard){
+        currentPositionX=Math.min(currentPositionX+1, DOT_NUMBER-1);
+        gameBoard.repaint();
     }
 
     /**

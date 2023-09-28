@@ -5,6 +5,8 @@ import java.awt.Color;
 /**
  * ConnectionSprite is a subclass of Sprite that represents connections between dots or horizontal connections between sprites.
  * The static method createConnection is used to conveniently create a ConnectionSprite at the specified coordinates and build its shape.
+ * 
+ * @author Diego Elizondo
  */
 public class ConnectionSprite extends Sprite {
 

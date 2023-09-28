@@ -14,35 +14,60 @@ import java.util.List;
 import DataStructures.Mesh;
 import DataStructures.Queue;
 
+/**
+ * Represents a JSON server that handles client connections and message exchange in JSON format.
+ * The JsonServer class represents a server that listens for client connections, assigns unique IDs to clients,
+ * and exchanges messages with clients in JSON format.
+ * 
+ * @author José Barquero
+ */
 public class JsonServer {
 
+    /**
+     * List of PrintWriter objects for clients' output streams.
+     */
     private static List<PrintWriter> clientWriters = new ArrayList<>();
-    private static Queue clientQueue = new Queue();  // Cola para los clientes
 
-    private static int clientIdCounter = 1;  // Contador para asignar IDs únicos
+    /**
+     * The queue to store connected clients.
+     */
+    private static Queue clientQueue = new Queue();  // Queue for clients
 
+    /**
+     * Counter to assign unique client IDs.
+     */
+    private static int clientIdCounter = 1;  // Counter to assign unique IDs
+
+    /**
+     * The current state of the server.
+     */
     private static ServerState serverState = ServerState.WAITING_FOR_CLIENTS;
 
+    /**
+     * The main method to start the JSON server.
+     *
+     * @param args The command-line arguments.
+     */
     public static void main(String[] args) {
         try {
             ServerSocket serverSocket = new ServerSocket(12345);
-            System.out.println("Servidor iniciado. Esperando conexiones...");
+            System.out.println("Server started. Waiting for connections...");
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                System.out.println("Cliente conectado desde " + clientSocket.getInetAddress());
+                System.out.println("Client connected from " + clientSocket.getInetAddress());
 
-                // Asignar un ID único al cliente
+                // Assign a unique ID to the client
                 int clientId = assignClientId();
 
-                // Añadir el cliente a la cola
+                // Add the client to the queue
                 clientQueue.enqueue(clientSocket, clientId);
 
-                // Verificar si podemos comenzar a enviar mensajes
+                // Check if we can start sending messages
                 if (serverState == ServerState.WAITING_FOR_CLIENTS && clientQueue.size() >= 2) {
                     serverState = ServerState.SENDING_MESSAGES;
 
-                    // Enviar mensajes a todos los clientes
+                    // Send messages to all clients
                     synchronized (clientQueue) {
                         for (Socket client : clientQueue.getAllClients()) {
                             sendInitialMessage(client);
@@ -50,7 +75,7 @@ public class JsonServer {
                     }
                 }
 
-                // Crear un hilo para manejar la comunicación con este cliente
+                // Create a thread to handle communication with this client
                 Thread clientThread = new Thread(new ClientHandler(clientSocket));
                 clientThread.start();
             }
@@ -61,7 +86,7 @@ public class JsonServer {
 
     private static void sendInitialMessage(Socket clientSocket) throws IOException {
         PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-        Message initialMessage = new Message("Servidor", "Puedes comenzar a enviar mensajes.", true, -1);
+        Message initialMessage = new Message("Server", "You can start sending messages.", true, -1);
         ObjectMapper objectMapper = new ObjectMapper();
         String jsonMessage = objectMapper.writeValueAsString(initialMessage);
         out.println(jsonMessage);
@@ -89,21 +114,22 @@ public class JsonServer {
                 ObjectMapper objectMapper = new ObjectMapper();
                 Message message = objectMapper.readValue(jsonMessage, Message.class);
 
-                System.out.println("Mensaje recibido del cliente: " + message);
+                System.out.println("Message received from the client: " + message);
 
-                // Si es una nueva conexión, enviar mensaje a todos los clientes
+                // If it's a new connection, send a message to all clients
                 if (message.isNewConnection()) {
-                    // Asignar un ID único al cliente
+                    // Assign a unique ID to the client
                     int clientId = assignClientId();
 
-                    // Agregar el cliente a la cola
+                    // Add the client to the queue
                     clientQueue.enqueue(clientSocket, clientId);
 
-                    // Enviar mensaje a todos los clientes
+                    // Send a message to all clients
                     synchronized (clientWriters) {
                         for (PrintWriter writer : clientWriters) {
                             if (writer != out) {
-                                Message responseMessage = new Message("Servidor", "Nuevo cliente conectado: " + message.getContent(), false, clientId);
+                                Message responseMessage = new Message("Server",
+                                        "New client connected: " + message.getContent(), false, clientId);
                                 responseMessage.setNewConnection(true);
                                 String jsonResponse = objectMapper.writeValueAsString(responseMessage);
                                 writer.println(jsonResponse);
@@ -112,17 +138,16 @@ public class JsonServer {
                     }
                 }
 
-               if (message.getMessageType() == Message.MessageType.MESH_JSON) {
-                    String meshJson=message.getContent();
-                    ObjectMapper objectMapper2= new ObjectMapper();
+                if (message.getMessageType() == Message.MessageType.MESH_JSON) {
+                    String meshJson = message.getContent();
+                    ObjectMapper objectMapper2 = new ObjectMapper();
                     try {
-                        Mesh mesh=objectMapper2.readValue(meshJson, Mesh.class);
-                        System.out.println("Mesh recibido del cliente: "+mesh);
+                        Mesh mesh = objectMapper2.readValue(meshJson, Mesh.class);
+                        System.out.println("Mesh received from the client: " + mesh);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
-                } 
+                }
 
             } catch (IOException e) {
                 e.printStackTrace();

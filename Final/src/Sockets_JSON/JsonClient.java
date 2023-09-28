@@ -11,60 +11,79 @@ import java.net.Socket;
 import Game.*;
 import DataStructures.*;
 
+/**
+ * Represents a JSON client that connects to a server and exchanges messages in JSON format.
+ * The JsonClient class represents a client that connects to a server using a socket and exchanges
+ * messages with the server in JSON format.
+ * 
+ * @author José Barquero
+ */
 public class JsonClient {
 
+    /**
+     * The main method to start the JSON client.
+     *
+     * @param args The command-line arguments.
+     */
     public static void main(String[] args) {
         try {
-            // Conectar al servidor en el puerto 12345
+            // Connect to the server at port 12345
             Socket socket = new Socket("localhost", 12345);
-            System.out.println("Conectado al servidor.");
+            System.out.println("Connected to the server.");
 
-            // Configurar streams de entrada y salida
+            // Set up input and output streams
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
 
-            // Crear un mensaje en formato JSON para indicar una nueva conexión
-            Message message = new Message("Cliente", "Hola, servidor!", true, -1);  // El ID será asignado por el servidor
-            message.setMessageType(Message.MessageType.NEW_CLIENT);  // Establece el tipo de mensaje
+            // Create a message in JSON format to indicate a new connection
+            Message message = new Message("Client", "Hello, server!", true, -1);  // The ID will be assigned by the server
+            message.setMessageType(Message.MessageType.NEW_CLIENT);  // Set the message type
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonMessage = objectMapper.writeValueAsString(message);
 
-            // Enviar el mensaje al servidor
+            // Send the message to the server
             out.println(jsonMessage);
 
-            // Leer la respuesta del servidor en formato JSON
+            // Read the server's response in JSON format
             String jsonResponse = in.readLine();
 
-            // Convertir el JSON a un objeto
+            // Convert the JSON to an object
             Message responseMessage = objectMapper.readValue(jsonResponse, Message.class);
-            
-            // Si es una nueva conexión, actualizar el ID asignado por el servidor
+
+            // If it's a new connection, update the ID assigned by the server
             if (responseMessage.isNewConnection() && responseMessage.getClientId() != -1) {
-                System.out.println("Conectado con ID de cliente: " + responseMessage.getClientId());
+                System.out.println("Connected with client ID: " + responseMessage.getClientId());
             }
 
-            // Crear un mensaje en formato JSON con el mesh
-            Mesh mesh = createMesh();  // Define tu lógica para crear el objeto Mesh
+            // Create a message in JSON format with the mesh
+            Mesh mesh = createMesh();  // Define your logic to create the Mesh object
             String meshJson = objectMapper.writeValueAsString(mesh);
-            Message meshMessage = new Message("Cliente", meshJson, false, -1);
+            Message meshMessage = new Message("Client", meshJson, false, -1);
             meshMessage.setMessageType(Message.MessageType.MESH_JSON);
             String jsonMeshMessage = objectMapper.writeValueAsString(meshMessage);
 
-            // Enviar el mensaje del mesh al servidor
+            // Send the mesh message to the server
             out.println(jsonMeshMessage);
 
-            // Cerrar conexión
+            // Close the connection
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Creates a mesh object.
+     * Here you should implement the logic to create a valid Mesh object.
+     * Return a valid Mesh object.
+     *
+     * @return A valid Mesh object.
+     */
     private static Mesh createMesh() {
-        // Aquí deberías implementar la lógica para crear un objeto Mesh
-        // Retorna un objeto Mesh válido
+        // Implement your logic to create a Mesh object here
+        // Return a valid Mesh object
         Mesh mesh = new Mesh();
-        // Agrega puntos, líneas, cajas, etc. al mesh según sea necesario
+        // Add points, lines, boxes, etc. to the mesh as needed
         return mesh;
     }
 }

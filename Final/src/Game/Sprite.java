@@ -6,6 +6,8 @@ import java.awt.Graphics;
 
 /**
  * The type Sprite.
+ * 
+ * @author Diego Elizondo
  */
 public class Sprite {
 
