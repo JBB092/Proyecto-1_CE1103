@@ -1,6 +1,11 @@
 package Serial;
+
 import com.fazecast.jSerialComm.*;
+
 import java.nio.charset.StandardCharsets;
+
+import DataStructures.DoublyLinkedList;
+
 
 /**
  Clase principal para la obtención de los datos enviados al puerto serial

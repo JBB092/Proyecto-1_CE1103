@@ -13,7 +13,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import Serial.DoublyLinkedListMain;
+import DataStructures.DoublyLinkedList;
 
 class Sprite {
 
