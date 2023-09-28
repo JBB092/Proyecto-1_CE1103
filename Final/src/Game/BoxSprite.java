@@ -2,21 +2,31 @@ package Game;
 
 import java.awt.Color;
 
-class BoxSprite extends Sprite{
+/**
+ * Represents a box sprite in the game.
+ * Extends the Sprite class and includes information about horizontal and vertical connections, as well as the player who closed the box.
+ * 
+ * The BoxSprite class represents a box sprite in the game. It extends the Sprite class and includes
+ * information about horizontal and vertical connections, as well as the player who closed the box.
+ * 
+ * @author Diego Elizondo
+ */
+public class BoxSprite extends Sprite {
 
     /**
-     * The Horizontal connections.
+     * The horizontal connections of the box.
      */
-    ConnectionSprite[] horizontalConnections; // The ConnectionSprites that are the top and bottom borders of the box
-    /**
-     * The Vertical connections.
-     */
-    ConnectionSprite[] verticalConnections; // The ConnectionSprites that are the left and right borders of the box
+    ConnectionSprite[] horizontalConnections;
 
     /**
-     * The Player.
+     * The vertical connections of the box.
      */
-    int player; // Tracks the player that closed the box
+    ConnectionSprite[] verticalConnections;
+
+    /**
+     * The player who closed the box.
+     */
+    int player;
 
     /**
      * Constructs a new BoxSprite object.

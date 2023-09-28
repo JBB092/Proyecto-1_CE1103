@@ -1,75 +1,89 @@
 package DataStructures;
 
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
+
 /**
- * Esta clase representa una cola implementada utilizando lista doblemente enlazada.
- * En una cola, los elementos se añaden al final y se eliminan del principio (FIFO - First-In-First-Out)
+ * Represents a queue using a doubly linked list to manage client sockets and IDs.
+ * 
+ * The Queue class represents a queue using a doubly linked list to manage client sockets and IDs.
+ * It allows adding (enqueue) and removing (dequeue) elements, as well as checking the queue's status.
+ * 
  * @author José Barquero
  */
 public class Queue {
-    private DoublyLinkedList doublyLinkedList; //La lista doblemente enlazada que representa la cola
+    /**
+     * The doubly linked list that represents the queue.
+     */
+    private DoublyLinkedList doublyLinkedList;
 
     /**
-     * Constructor para crear una nueva instancia de la cola.
+     * List of client sockets.
+     */
+    private List<Socket> clientSockets;
+
+    /**
+     * Constructs an empty queue.
      */
     public Queue() {
         doublyLinkedList = new DoublyLinkedList();
-    }
-
-    
-    /** 
-     * Añade un elemento al final de la cola.
-     * 
-     * @param data El elemento a añadir a la cola.
-     */
-    public void enqueue(int data) {
-        doublyLinkedList.insertAtEnd(data);
+        clientSockets = new ArrayList<>();
     }
 
     /**
-     * Elimina el primer elemento de la cola.
-     * Si la cola está vacía, no se realiza ninguna acción.
+     * Adds a socket and its associated client ID to the end of the queue.
+     *
+     * @param socket The socket to be added.
+     * @param clientId The ID of the client associated with the socket.
      */
-    public void dequeue() {
+    public void enqueue(Socket socket, int clientId) {
+        clientSockets.add(socket);
+        doublyLinkedList.insertAtEnd(clientId);
+    }
+
+    /**
+     * Removes and returns the client ID from the front of the queue.
+     * Also removes the associated socket (FIFO - First In, First Out).
+     *
+     * @return The client ID removed from the queue.
+     */
+    public int dequeue() {
         if (!doublyLinkedList.isEmpty()) {
-            doublyLinkedList.head = doublyLinkedList.head.next;
-            if (doublyLinkedList.head != null) {
-                doublyLinkedList.head.prev = null;
-            } else {
-                doublyLinkedList.last = null;
-            }
-            System.out.println("Primer elemento eliminado de la cola.");
+            int removedClientId = doublyLinkedList.removeFromFront();
+            clientSockets.remove(0); // Remove the socket from the front (FIFO)
+            System.out.println("First element removed from the queue. Client disconnected: " + removedClientId);
+            return removedClientId;
         } else {
-            System.out.println("La cola está vacía, no se puede eliminar un elemento.");
+            System.out.println("The queue is empty, cannot remove an element.");
+            return -1; // Return a value indicating removal failure
         }
     }
 
-    
-    /** 
-     * Obtiene el tamaño actual de la cola.
-     * 
-     * @return int El número de elementos en la cola
+    /**
+     * Checks if the queue is empty.
+     *
+     * @return True if the queue is empty, false otherwise.
+     */
+    public boolean isEmpty() {
+        return doublyLinkedList.isEmpty();
+    }
+
+    /**
+     * Gets the size of the queue.
+     *
+     * @return The number of elements in the queue.
      */
     public int size() {
-        int count = 0;
-        Node current = doublyLinkedList.head;
-        while (current != null) {
-            count++;
-            current = current.getNext();
-        }
-        return count;
+        return doublyLinkedList.size();
     }
-    
-    public static void main(String[] args) {
-         Queue cola= new Queue();
 
-         cola.enqueue(10);
-         cola.enqueue(20);
-         cola.enqueue(30);
-
-         System.out.println("Tamaño de la cola: " + cola.size());
-
-         cola.dequeue();
-
-         System.out.println("Tamaño de la cola después de eliminar un elemento: "+ cola.size());
+    /**
+     * Gets a list of all client sockets in the queue.
+     *
+     * @return A list of client sockets.
+     */
+    public List<Socket> getAllClients() {
+        return clientSockets;
     }
 }

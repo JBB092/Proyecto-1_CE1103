@@ -6,8 +6,10 @@ import java.awt.Graphics;
 
 /**
  * The type Sprite.
+ * 
+ * @author Diego Elizondo
  */
-class Sprite {
+public class Sprite {
 
     /**
      * Sprite is the basic object that is drawn onto the screen. The dots
