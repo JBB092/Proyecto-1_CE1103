@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"Serial","c":"ArduinoSerialReceiver","l":"ArduinoSerialReceiver()","u":"%3Cinit%3E()"},{"p":"Serial","c":"ArduinoSerialReceiver","l":"main(String[])","u":"main(java.lang.String[])"}];updateSearchResults();
